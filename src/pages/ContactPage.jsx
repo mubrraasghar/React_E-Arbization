@@ -7,7 +7,7 @@ import GetInTouch from "../components/GetInTouch";
 const ContactPage = () => {
   return (
    <>
-      <Navbar/>
+      {/* <Navbar/> */}
       <ContactForm />
       <GetInTouch/>
    </>
