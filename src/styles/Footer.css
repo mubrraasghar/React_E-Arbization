@@ -1,0 +1,157 @@
+.footer {
+  background-color: #ffffff;
+  padding: 50px 0 20px;
+  border-top: 1px solid #ddd;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  flex-wrap: wrap;
+}
+
+.footer-logo img {
+  width: 180px;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 800px;
+}
+
+.footer-column {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  min-width: 180px;
+}
+
+.footer-column h4 {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 12px;
+  color: #444;
+}
+
+.footer-column a {
+  text-decoration: none;
+  color: #666;
+  font-size: 14px;
+  margin-bottom: 8px;
+  transition: color 0.3s ease;
+}
+
+.footer-column a:hover {
+  color: #5ccff3;
+}
+
+.footer-column ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-column1 {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  min-width: 180px;
+  font-weight: 700;
+}
+
+.footer-column1 h4 {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 12px;
+  color: #444;
+}
+
+.footer-column1 a {
+  text-decoration: none;
+  color: #666;
+  font-size: 14px;
+  margin-bottom: 8px;
+  transition: color 0.3s ease;
+}
+
+.footer-column1 a:hover {
+  color: #5ccff3;
+}
+
+.footer-column1 ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 30px;
+  font-size: 14px;
+  color: #666;
+  padding: 20px 50px 10px;
+  border-top: 1px solid #ddd;
+}
+
+.social-icons {
+  display: flex;
+  gap: 12px;
+}
+
+.social-icons a {
+  text-decoration: none;
+  display: inline-block;
+}
+
+.footer-icon {
+  width: 24px;
+  height: auto;
+  transition: opacity 0.3s ease;
+}
+
+.footer-icon:hover {
+  opacity: 0.7;
+}
+
+/* 📌 RESPONSIVE DESIGN */
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    align-items: left;
+    text-align: left;
+  }
+
+  .footer-logo {
+    margin-bottom: 20px;
+   
+  }
+
+  .footer-links {
+    flex-direction: column;
+  
+  }
+
+  .footer-column {
+    margin-bottom: 20px;
+  }
+  .footer-column1 {
+ 
+    margin-bottom: 20px;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    padding-bottom: 0;
+  }
+
+  .social-icons {
+  
+    margin-top: 15px;
+  }
+}

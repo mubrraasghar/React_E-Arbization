@@ -1,0 +1,143 @@
+/* Prevent horizontal scrolling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    overflow-x: hidden;
+    width: 100%;
+}
+
+/* Process Section */
+.process-section {
+    background-color: #f8faff;
+    padding: 5rem 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+/* Container */
+.process-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    width: 100%;
+    gap: 3rem;
+}
+
+/* Image Styling */
+.process-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.process-image img {
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+/* Content Section */
+.process-content {
+    flex: 1;
+    text-align: left;
+    color: #0a2458;
+}
+
+.process-title {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.process-subtitle {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-top: 1.5rem;
+}
+
+.process-description {
+    font-size: 1rem;
+    color: #354a75;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .process-section {
+        padding: 4rem 5%;
+    }
+
+    .process-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .process-image {
+        order: -1;
+        width: 100%;
+    }
+
+    .process-content {
+        width: 100%;
+        text-align: center;
+    }
+
+    .process-title {
+        font-size: 2rem;
+    }
+
+    .process-subtitle {
+        font-size: 1.3rem;
+    }
+
+    .process-description {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .process-section {
+        padding: 3rem 5%;
+    }
+
+    .process-title {
+        font-size: 1.8rem;
+        text-align: left;
+    }
+
+    .process-subtitle {
+        font-size: 1.2rem;
+        text-align: left;
+    }
+
+    .process-description {
+        font-size: 0.95rem;
+        text-align: left;
+    }
+}
+
+@media (max-width: 480px) {
+    .process-section {
+        padding: 2rem 5%;
+    }
+
+    .process-title {
+        font-size: 1.6rem;
+    }
+
+    .process-subtitle {
+        font-size: 1.1rem;
+    }
+
+    .process-description {
+        font-size: 0.9rem;
+    }
+}
