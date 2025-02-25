@@ -1,44 +1,56 @@
+
 .form-container {
   display: flex;
   justify-content: center; 
   padding: 100px 0;
-  transition: height 11s;
   background-color: white;
-  
+  width: 100%;
+ margin-top: -50px;
+ margin-right: 50px;
 }
 
 .form-box {
   background: white;
   transition: min-height 0.5s ease-in-out; 
-  
   border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  width: 400px;
   height: fit-content;
 
+  max-width: 700px;
+  min-width: 400px;
+  padding: 50px;
 }
+.contact-info,
+.form-section {
+  flex: 1;
+  max-width: 700px;
+  min-width: 300px;
+  width: 100%; /* Ensures equal width */
+}
+
 
 .form-box h2 {
   text-align: center;
   padding: 20px;
-  border-radius: 10px 10px 0px 0px ;
+  border-radius: 10px 10px 0px 0px;
   color: white; 
-  background-color:#183d81;
+  background-color: #183d81;
 }
-.form-fields{ 
-  transition: min-height 15s ease-in-out;
-    padding: 30px;
-    display: flex;
+
+.form-fields { 
+  transition: min-height 0.5s ease-in-out;
+  padding: 30px;
+  display: flex;
   flex-direction: column;
   gap: 20px; /* Increased spacing */
 }
 
+/* Progress Indicator */
 .progress-indicator {
   display: flex;
   align-items: center;
   justify-content: space-between;
   margin-bottom: 20px;
-  position: relative;
 }
 
 .progress-wrapper {
@@ -47,7 +59,6 @@
   margin-bottom: 20px;
 }
 
-/* Step Circle */
 .step-item {
   display: flex;
   align-items: center;
@@ -63,7 +74,6 @@
   z-index: 2;
 }
 
-/* Step Label Above Circle */
 .step-label {
   font-size: 12px;
   color: #15346c;
@@ -74,7 +84,6 @@
   width: 100px;
 }
 
-/* Ensure Step Labels Align Properly */
 .progress-wrapper-Text {
   display: flex;
   flex-direction: column-reverse;
@@ -83,10 +92,9 @@
 }
 
 .step-item.active {
-  background: #134ab1; /* Dark gray for active steps */
+  background: #134ab1; 
 }
 
-/* Connecting Lines */
 .progress-line {
   width: 50px;
   height: 4px;
@@ -106,34 +114,26 @@
 }
 
 .progress-line.completed {
-  background: #333; /* Dark gray for completed steps */
+  background: #333;
 }
 
-/* Form Content */
-.step-content {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
-
-.step-content label{
-  color: #6e84ab;
-}
-input, textarea {
-
+/* Form Input Fields */
+input, textarea, select {
   padding: 12px;
   border: 1px solid #ccc;
   border-radius: 8px;
   width: 100%;
   font-size: 14px;
   transition: all 0.3s ease-in-out;
-
 }
-input:focus, textarea:focus {
+
+input:focus, textarea:focus, select:focus {
   border-color: #134ab1;
   box-shadow: 0 0 5px rgba(19, 74, 177, 0.3);
   outline: none;
 }
+
+/* Checkbox & Radio Buttons */
 .checkbox-group, .radio-group {
   display: flex;
   align-items: center;
@@ -141,10 +141,19 @@ input:focus, textarea:focus {
   gap: 15px;
 }
 
+.checkbox-group input[type="checkbox"], 
+.radio-group input[type="radio"] {
+  width: 18px;
+  height: 18px;
+  accent-color: #134ab1;
+  cursor: pointer;
+}
+
+/* Terms & Conditions */
 .terms-container {
   display: flex;
   align-items: center;
-  gap: 8px; /* Space between checkbox and text */
+  gap: 8px;
 }
 
 .terms-container input[type="checkbox"] {
@@ -172,7 +181,8 @@ input:focus, textarea:focus {
   text-decoration: underline;
 }
 
-.error-border {
+/* Error Handling */
+.error {
   border: 2px solid red !important;
   background-color: #ffe6e6;
 }
@@ -182,37 +192,11 @@ input:focus, textarea:focus {
   font-size: 12px;
 }
 
-/* Ensure text is on the same line */
-.checkbox-group label, .radio-group label {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 14px;
-  cursor: pointer;
-}
-/* Custom Checkbox Design */
-.checkbox-group input[type="checkbox"], 
-.radio-group input[type="radio"] {
-  width: 18px;
-  height: 18px;
-  accent-color: #134ab1; /* Modern Blue Styling */
-  cursor: pointer;
-}
-
-.radio-group {
-  display: flex;
-  gap: 15px;
-}
-
+/* Form Navigation Buttons */
 .form-navigation {
-
   display: flex;
   justify-content: space-between;
   margin-top: 20px;
-}
-
-.left-navigation {
-  justify-content: end;
 }
 
 .form-navigation button {
@@ -225,12 +209,12 @@ input:focus, textarea:focus {
   font-size: 14px;
 }
 
-.next-btn , .submit-btn {
+.next-btn, .submit-btn {
   background-color: #134ab1;
   color: white;
 }
 
-.next-btn:hover , .submit-btn:hover {
+.next-btn:hover, .submit-btn:hover {
   background-color: #043a9e;
 }
 
@@ -242,57 +226,40 @@ input:focus, textarea:focus {
 .back-btn:hover {
   background-color: #00aac4;
 }
- 
 
+/* Success Message */
+.success-message {
+  text-align: center;
+  color: green;
+  font-weight: bold;
+}
+
+/* Responsive Design */
 @media (max-width: 500px) {
   .form-box {
-    padding: 15px;
-    width: 100%;
-    transition: all 1s;
-    margin: 0;
+    margin-top: -100px;
+    max-width: 600px;
+    min-width: 400px;
+ 
   }
+
+  .progress-line {
+    width: 45px;
+    height: 2px;
+  }
+
+  .step-item {
+    width: 20px;
+    height: 20px;
+    font-size: 9px;
+  }
+
   .checkbox-group label, .radio-group label {
     font-size: 12px;
   }
 
-    /* Connecting Lines */
-    .progress-line {
-      width: 45px;
-      height: 2px;
-      background: #ccc;
-      margin: 0 6px;
-      position: relative;
-    }
-
-  .progress-line.pending {
-    background: repeating-linear-gradient(
-      90deg,
-      #ccc 0px,
-      #ccc 2px,
-      transparent 2px,
-      transparent 4px
-    );
-  }
-
-  .step-content label { 
+  .form-navigation button {
+    padding: 10px 14px;
     font-size: 12px;
-    margin: 0;
   }
-
-/* Step Circle */
-.step-item {   
-  width: 20px;
-  height: 20px; 
-  font-size: 9px;   
-}
-/* Step Label Above Circle */
-.step-label {
-  font-size: 8px;
-  top: 25px;
-} 
-
-.form-navigation button {
-  padding: 8px 12px;
-    font-size: 12px;
-}
 }

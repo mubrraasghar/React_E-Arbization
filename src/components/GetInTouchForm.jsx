@@ -29,7 +29,7 @@ const GetInTouchForm = () => {
         <ContactForm />
       </div>
 
-
+    
     </div>
   );
 };
