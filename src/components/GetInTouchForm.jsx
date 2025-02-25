@@ -4,7 +4,7 @@ import "../styles/GetInTouchForm.css";
 
 const GetInTouchForm = () => {
   return (
-    <div className="border-form"> 
+    
     <div className="main-formsection">
     
       <div className="get-in-touch-form"> 
@@ -34,7 +34,7 @@ const GetInTouchForm = () => {
 
       </div>
       </div>
-    </div>
+  
 
   );
 };
