@@ -1,37 +1,44 @@
-/* General Styling */
-.get-in-touch-form {
+/* Main Wrapper - White Background */
+/* Main Wrapper - White Background */
+.main-formsection {
+  background-color: white; /* White background outside the border */
   display: flex;
   justify-content: center;
-  align-items: flex-start;
-  flex-wrap: wrap; /* Allows stacking on smaller screens */
-  gap: 40px;
+  align-items: center;
+  padding: 100px 0;
   position: relative;
-  padding: 5%;
-  border-radius: 35px;
-  background-color: #0a2458;
 }
-.main-formsection{
-  background-color: #50c6d8;
-  padding: 1.5%;
-  padding-top: 100px;
- }
 
-/* Left Section: Contact Info */
-.contact-info {
-  flex: 1; /* Makes it take available space */
-  max-width: 700px;
-  min-width: 400px;
+/* Sticky & Fixed Blue Section */
+.get-in-touch-form {
+  width: 100%;
+  max-width: 1500px; /* Ensures it stays within .border-form */
+  background-color: #0a2458; /* Blue Background */
   padding: 50px;
+  border-radius: 20px;
+  display: flex;
+  /* justify-content: space-between; */
+  /* align-items: flex-start; */
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+}
+
+
+/* Contact Info (Left Side) */
+.contact-info {
+  flex: 1;
+  max-width: 600px;
+  min-width: 300px;
+  padding: 30px;
   color: white;
 }
 
 .contact-info h2 {
-  font-size: clamp(24px, 2vw, 32px);
+  font-size: 28px;
   color: #50c6d8;
 }
 
 .contact-info p {
-  font-size: clamp(14px, 1.5vw, 16px);
+  font-size: 16px;
   color: white;
 }
 
@@ -40,36 +47,37 @@
 }
 
 .location h3 {
-  font-size: clamp(16px, 1.8vw, 20px);
+  font-size: 20px;
   color: #50c6d8;
 }
 
 .location p {
-  font-size: clamp(12px, 1.2vw, 14px);
+  font-size: 14px;
   color: wheat;
 }
 
-/* Right Section: Forms */
+/* Right Side - Form */
 .form-section {
   flex: 1;
-  /* max-width: 500px; */
   min-width: 300px;
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  align-items: center;
 }
 
 /* Contact Form */
 .contact-form {
   background: white;
-  padding: 20px;
+  padding: 25px;
   border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 15px;
+  width: 100%;
 }
 
+/* Form Inputs */
 .contact-form input,
 .contact-form textarea {
   padding: 12px;
@@ -83,6 +91,7 @@
   resize: none;
 }
 
+/* Submit Button */
 .contact-form .submit-btn {
   background-color: #5dc4d7;
   color: white;
@@ -100,39 +109,46 @@
   background-color: #49b1c4;
 }
 
-/* Responsive Design */
-@media (max-width: 900px) {
+/* Responsive Fixes */
+@media (max-width: 1024px) {
+  .border-form {
+    width: 95%;
+  }
+
   .get-in-touch-form {
-    padding-top: 200px;
     flex-direction: column;
     align-items: center;
-    /* text-align: center; */
+    text-align: center;
   }
-  
-  .contact-info{
+
+  .contact-info {
     max-width: 400px;
-    min-width: 300px;
-  
-  }
-  
-  .contact-form {
-    width: 100%;
+    text-align: left;
   }
 }
 
-@media (max-width: 500px) {
+@media (max-width: 600px) {
+  .main-formsection {
+    padding: 50px 10px;
+  }
+
+  .border-form {
+    width: 100%;
+    padding: 15px;
+  }
+
   .get-in-touch-form {
-    padding: 0px 20px;
-    padding-top: 100px;
+    width: 100%;
+    padding: 30px;
   }
 
   .contact-info,
   .form-section {
-    padding: 20px;
+    padding: 15px;
   }
 
   .contact-form {
-    padding: 15px;
+    padding: 20px;
   }
 
   .contact-form input,

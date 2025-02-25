@@ -14,13 +14,13 @@
   border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   height: fit-content;
-  min-width: 700px;
+  min-width: 600px;
   padding: 50px;
 }
 .contact-info,
 .form-section {
   flex: 1;
-  max-width: 700px;
+  max-width: 650px;
   min-width: 300px;
   width: 100%; /* Ensures equal width */
 }
@@ -207,21 +207,21 @@ input:focus, textarea:focus, select:focus {
 }
 
 .next-btn, .submit-btn {
-  background-color: #134ab1;
+  background-color: #1BCDE9;
   color: white;
 }
 
 .next-btn:hover, .submit-btn:hover {
-  background-color: #043a9e;
+  background-color: #3ddaf2;
 }
 
 .back-btn {
-  background-color: #55bfcf;
+  background-color: #1BCDE9;
   color: white;
 }
 
 .back-btn:hover {
-  background-color: #00aac4;
+  background-color: #3ddaf2;
 }
 
 /* Success Message */

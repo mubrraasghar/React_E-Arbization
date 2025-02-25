@@ -4,8 +4,9 @@ import "../styles/GetInTouchForm.css";
 
 const GetInTouchForm = () => {
   return (
+    <div className="border-form"> 
     <div className="main-formsection">
-
+    
       <div className="get-in-touch-form"> 
         <div className="contact-info">
           <h2>Get in Touch</h2>
@@ -31,7 +32,7 @@ const GetInTouchForm = () => {
           <ContactForm />
         </div>
 
-      
+      </div>
       </div>
     </div>
 
