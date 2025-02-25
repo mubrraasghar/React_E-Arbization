@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "../styles/ContactForm.css";
 
-const ContactForm = () => {
+const MultiStepForm = () => {
   const [step, setStep] = useState(1);
   const [formData, setFormData] = useState({
     fullName: "",
@@ -18,6 +18,7 @@ const ContactForm = () => {
   });
 
   const [errors, setErrors] = useState({});
+  const [submissionSuccess, setSubmissionSuccess] = useState(false); // Success message state
 
   const handleChange = (e) => {
     const { name, value, type, checked, files } = e.target;
@@ -25,10 +26,13 @@ const ContactForm = () => {
       if (name === "termsAccepted") {
         setFormData({ ...formData, [name]: checked });
       } else {
-        const updatedLanguages = checked
-          ? [...formData.targetLanguages, value]
-          : formData.targetLanguages.filter((lang) => lang !== value);
-        setFormData({ ...formData, targetLanguages: updatedLanguages });
+        setFormData({
+          ...formData,
+          targetLanguages: checked
+            ? [...formData.targetLanguages, value]
+            : formData.targetLanguages.filter((lang) => lang !== value),
+            
+        });
       }
     } else if (type === "file") {
       setFormData({ ...formData, attachment: files[0] });
@@ -37,53 +41,62 @@ const ContactForm = () => {
     }
   };
 
+
   const validateStep = () => {
     const newErrors = {};
-
+  
     if (step === 1) {
       if (!formData.fullName || formData.fullName.trim().split(" ").length < 2) {
         newErrors.fullName = "Full Name must contain at least two words.";
       }
-      
+  
       const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
       if (!formData.email || !emailPattern.test(formData.email)) {
-        newErrors.email = "Email is required.";
+        newErrors.email = "Enter a valid professional email.";
       }
-      
+  
       const phonePattern = /^\+\d{1,3}-\d{6,14}$/;
       if (!formData.phone || !phonePattern.test(formData.phone)) {
         newErrors.phone = "Phone Number must be in the format +CountryCode-Number.";
       }
-
+  
       if (!formData.companyName) newErrors.companyName = "Company Name is required.";
     }
-
+  
     if (step === 2) {
       if (!formData.currentLanguage) newErrors.currentLanguage = "Current Language is required.";
       if (formData.targetLanguages.length === 0) newErrors.targetLanguages = "Select at least one Target Language.";
       if (!formData.documentType) newErrors.documentType = "Document Type is required.";
       if (!formData.attachment) newErrors.attachment = "Please upload a document.";
     }
-
+  
     if (step === 3) {
       if (!formData.hearAboutUs) newErrors.hearAboutUs = "Please select how you heard about us.";
       if (!formData.termsAccepted) newErrors.termsAccepted = "You must accept the terms and conditions.";
     }
-    
+  
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
-
+  
   const nextStep = () => {
-    if (validateStep()) setStep((prev) => prev + 1);
+    if (validateStep()) {
+      setStep((prev) => prev + 1);
+    }
   };
-
+  
+  
   const prevStep = () => setStep((prev) => prev - 1);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (validateStep()) {
-      alert("Form submitted successfully!");
+    
+    // Show success message
+    setSubmissionSuccess(true);
+
+     // Reset form and step after 3 seconds
+     setTimeout(() => {
+      setStep(1);
       setFormData({
         fullName: "",
         email: "",
@@ -97,41 +110,35 @@ const ContactForm = () => {
         hearAboutUs: "",
         termsAccepted: false,
       });
-      setStep(1);
-      setErrors({});
-    }
+      setSubmissionSuccess(false);
+    }, 2000);
   };
 
   return (
-    <div className="contact-container">
-      <div className="contact-content">
-        <div className="contact-info">
-          <h2>Get in Touch</h2>
-          <p>
-            Get in touch with us and discover why we're one of the leading Arabic language specialists in the region.
-          </p>
-          <div className="location">
-            <h3>Dubai, UAE</h3>
-            <p>Unit 447, DMCC Business Center, Level No. 1</p>
-            <p>+971 56 50 73610</p>
-          </div>
-          <div className="location">
-            <h3>Riyadh, KSA</h3>
-            <p>Neo Center – Office #7, Al Imam Saud Bin Faisal Rd</p>
-            <p>+966 59 772 7170</p>
-          </div>
-          <div className="location">
-            <h3>Amman, Jordan</h3>
-            <p>Queen Rania Street, Qandeel Center, 4th Floor</p>
-            <p>+962 79 546 7744</p>
-          </div>
-        </div>
+    <div className="form-container">
+      <div className="form-box">
+        <h2>Contact Us</h2>
 
-        <div className="contact-form">
-          <form onSubmit={handleSubmit} noValidate>
-           {step === 1 && (
+        {submissionSuccess && <p className="success-message">Form submitted successfully!</p>}
+
+        <div className="form-fields">
+          <div className="progress-indicator">
+            {["Personal", "Translation", "Spam Prevention", "Review"].map((label, index) => (
+              <div key={index} className="progress-wrapper">
+                <div className="progress-wrapper-Text">
+                  <div className={`step-item ${step >= index + 1 ? "active" : ""}`}>{index + 1}</div>
+                  <div className="step-label">{label}</div>
+                </div>
+                {index < 3 && (
+                  <div className={`progress-line ${step > index + 1 ? "completed" : "pending"}`}></div>
+                )}
+              </div>
+            ))}
+          </div>
+
+          {step === 1 && (
               <>
-                <h3>Personal Information</h3>
+      
                 <input type="text" name="fullName" placeholder="Full Name" value={formData.fullName} onChange={handleChange} className={errors.fullName ? "error" : ""} />
                 {errors.fullName && <span className="error-msg">{errors.fullName}</span>}
 
@@ -146,9 +153,9 @@ const ContactForm = () => {
               </>
             )}
 
-            {step === 2 && (
+{step === 2 && (
               <>
-                <h3> Translation Requirements</h3>
+               
                 <select name="currentLanguage" value={formData.currentLanguage} onChange={handleChange} className={errors.currentLanguage ? "error" : ""}>
                   <option value="">Current Language</option>
                   <option value="English">English</option>
@@ -185,9 +192,9 @@ const ContactForm = () => {
               </>
             )}
 
-            {step === 3 && (
+
+{step === 3 && (
              <>
-               <h3>Spam Prevention</h3>
 
                <label>How did you hear about us?</label>
               <select
@@ -222,9 +229,11 @@ const ContactForm = () => {
            </>
       )}
 
+
+          
             {step === 4 && (
               <>
-                <h3>Review & Submit</h3>
+
                 <p><strong>Full Name:</strong> {formData.fullName}</p>
                 <p><strong>Email:</strong> {formData.email}</p>
                 <p><strong>Phone:</strong> {formData.phone}</p>
@@ -241,20 +250,19 @@ const ContactForm = () => {
                ) : (
                 <p><strong>Attachment:</strong> Not uploaded</p>
               )}
-
-                <button type="submit">Submit</button>
               </>
             )}
 
-            <div className="form-navigation">
-              {step > 1 && <button type="button" className="back-btn" onClick={prevStep}>Back</button>}
-              {step < 4 ? <button type="button" className="next-btn" onClick={nextStep}>Next</button> : null}
-            </div>
-          </form>
+
+          <div className="form-navigation">
+            {step > 1 && <button className="back-btn" onClick={prevStep}>Previous Step</button>}
+            {step < 4 && <button className="next-btn" onClick={nextStep}>Next Step</button>}
+            {step === 4 && <button className="submit-btn" onClick={handleSubmit}>Submit</button>}
+          </div>
         </div>
       </div>
     </div>
   );
 };
 
-export default ContactForm;
+export default MultiStepForm;

@@ -1,0 +1,138 @@
+/* General Styling */
+.get-in-touch-form {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap; /* Allows stacking on smaller screens */
+  padding: 100px 5%;
+  gap: 40px;
+  background-color: white;
+}
+
+/* Left Section: Contact Info */
+.contact-info {
+  flex: 1; /* Makes it take available space */
+  max-width: 500px;
+  min-width: 300px;
+  padding: 50px;
+}
+
+.contact-info h2 {
+  font-size: clamp(24px, 2vw, 32px);
+  color: #15346c;
+}
+
+.contact-info p {
+  font-size: clamp(14px, 1.5vw, 16px);
+  color: #6e84ab;
+}
+
+.location {
+  margin-top: 20px;
+}
+
+.location h3 {
+  font-size: clamp(16px, 1.8vw, 20px);
+  color: #15346c;
+}
+
+.location p {
+  font-size: clamp(12px, 1.2vw, 14px);
+  color: #6e84ab;
+}
+
+/* Right Section: Forms */
+.form-section {
+  flex: 1;
+  /* max-width: 500px; */
+  min-width: 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+/* Contact Form */
+.contact-form {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 100%;
+}
+
+.contact-form textarea {
+  height: 120px;
+  resize: none;
+}
+
+.contact-form .submit-btn {
+  background-color: #5dc4d7;
+  color: white;
+  font-weight: bold;
+  padding: 12px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-transform: uppercase;
+  font-size: 16px;
+  transition: background 0.3s;
+}
+
+.contact-form .submit-btn:hover {
+  background-color: #49b1c4;
+}
+
+/* Responsive Design */
+@media (max-width: 900px) {
+  .get-in-touch-form {
+    padding-top: 200px;
+    flex-direction: column;
+    align-items: center;
+    /* text-align: center; */
+  }
+  
+  .contact-info,
+  .form-section {
+    width: 100%;
+    padding: 30px;
+  }
+  
+  .contact-form {
+    width: 100%;
+  }
+}
+
+@media (max-width: 500px) {
+  .get-in-touch-form {
+    padding: 0px 20px;
+    padding-top: 100px;
+  }
+
+  .contact-info,
+  .form-section {
+    padding: 20px;
+  }
+
+  .contact-form {
+    padding: 15px;
+  }
+
+  .contact-form input,
+  .contact-form textarea {
+    padding: 10px;
+  }
+
+  .contact-form .submit-btn {
+    font-size: 14px;
+  }
+}

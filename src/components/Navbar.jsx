@@ -235,8 +235,9 @@ const Navbar = () => {
 
             <li className="mobile-menu-item">The Translation Forum</li>
             <li className="mobile-menu-item">Join Our Team</li>
+
             <li className="menu-item Link">
-            <Link to="/contact">Get in Touch</Link>
+                <Link to="/contact" onClick={() => setMenuOpen(false)}>Get in Touch</Link>
             </li>
 
             <li>

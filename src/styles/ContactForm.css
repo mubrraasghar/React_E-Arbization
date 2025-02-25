@@ -1,268 +1,298 @@
-/* General Styling */
-.contact-container {
+.form-container {
   display: flex;
-  flex-wrap: wrap;
+  justify-content: center; 
+  padding: 100px 0;
+  transition: height 11s;
+  background-color: white;
+  
+}
+
+.form-box {
+  background: white;
+  transition: min-height 0.5s ease-in-out; 
+  
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  width: 400px;
+  height: fit-content;
+
+}
+
+.form-box h2 {
+  text-align: center;
+  padding: 20px;
+  border-radius: 10px 10px 0px 0px ;
+  color: white; 
+  background-color:#183d81;
+}
+.form-fields{ 
+  transition: min-height 15s ease-in-out;
+    padding: 30px;
+    display: flex;
+  flex-direction: column;
+  gap: 20px; /* Increased spacing */
+}
+
+.progress-indicator {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.progress-wrapper {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+/* Step Circle */
+.step-item {
+  display: flex;
+  align-items: center;
   justify-content: center;
-  padding: 150px 20px;
-  gap: 40px;
-  box-sizing: border-box;
+  width: 30px;
+  height: 30px;
+  background: #ccc;
+  color: white;
+  border-radius: 50%;
+  font-size: 14px;
+  font-weight: bold;
+  position: relative;
+  z-index: 2;
 }
 
-.contact-content {
+/* Step Label Above Circle */
+.step-label {
+  font-size: 12px;
+  color: #15346c;
+  font-weight: bold;
+  text-align: center;
+  position: absolute;
+  top: 30px;
+  width: 100px;
+}
+
+/* Ensure Step Labels Align Properly */
+.progress-wrapper-Text {
   display: flex;
-  flex-wrap: wrap;
-  max-width: 1200px;
-  width: 100%;
-  gap: 60px; /* Increased gap */
-  justify-content: space-between; /* Ensures proper spacing */
+  flex-direction: column-reverse;
+  align-items: center;
+  position: relative;
 }
 
-/* Left Side - Contact Info */
-.contact-info {
-  flex: 1;
-  min-width: 350px; /* Adjust for better spacing */
+.step-item.active {
+  background: #134ab1; /* Dark gray for active steps */
 }
 
-.contact-info h2 {
-  font-size: 2rem;
-  margin-bottom: 10px;
-  color: #15346c;
+/* Connecting Lines */
+.progress-line {
+  width: 50px;
+  height: 4px;
+  background: #ccc;
+  margin: 0 10px;
+  position: relative;
 }
 
-.contact-info p {
-  margin-bottom: 10px;
-  line-height: 1.5;
-  color: #15346c;
+.progress-line.pending {
+  background: repeating-linear-gradient(
+    90deg,
+    #ccc 0px,
+    #ccc 10px,
+    transparent 10px,
+    transparent 20px
+  );
 }
 
-.location h3 {
-  font-size: 1.2rem;
-  margin-top: 20px;
-  color: #15346c;
+.progress-line.completed {
+  background: #333; /* Dark gray for completed steps */
 }
 
-/* Right Side - Form */
-.contact-form {
-  flex: 1.5; /* Adjust width ratio */
-  min-width: 400px; /* Adjust form width */
-}
-
-.contact-form h3 {
- color: #15346c;
- font-size: 30px;
-}
-.contact-form form {
+/* Form Content */
+.step-content {
   display: flex;
   flex-direction: column;
-  gap: 25px;
-  background-color: white;
-  padding: 20px;
-  border-radius: 8px;
-  
-  /* box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); */
+  gap: 15px;
 }
 
-.contact-form input,
-.contact-form select {
-  padding: 10px;
-  /* border: 1px solid #15346c; */
-  border-radius: 4px;
-  width: 90%;  /* Change from 100% to 90% */
-  max-width: 500px; /* Adjust max width */
-  /* box-sizing: border-box; */
-  font-size: 1rem;
-  color: #15346c;
+.step-content label{
+  color: #6e84ab;
 }
-.contact-form button,
-.contact-form label {
-  font-size: 1rem;
-}
+input, textarea {
 
-.contact-form input,
-.contact-form select {
-  padding: 10px;
+  padding: 12px;
   border: 1px solid #ccc;
-  border-radius: 4px;
+  border-radius: 8px;
   width: 100%;
-  box-sizing: border-box;
-}
+  font-size: 14px;
+  transition: all 0.3s ease-in-out;
 
-.contact-form input[type="file"] {
-  padding: 5px;
 }
-
-.contact-form input.error,
-.contact-form select.error,
-.contact-form textarea.error {
-  border-color: red;
+input:focus, textarea:focus {
+  border-color: #134ab1;
+  box-shadow: 0 0 5px rgba(19, 74, 177, 0.3);
+  outline: none;
 }
-
-.error-message {
-  color: red;
-  font-size: 0.9rem;
-}
-/* reCAPTCHA Container */
-.captcha-container {
-  margin-top: 15px;
+.checkbox-group, .radio-group {
   display: flex;
-  justify-content: center;
-}
-
-.contact-form button {
-  padding: 12px 20px;
-  border: none;
-  border-radius: 4px;
-  background-color: #007bff;
-  color: #fff;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.contact-form button:hover {
-  background-color: #0056b3;
-}
-
-.form-navigation {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 20px;
-  gap: 10px;
-}
-
-.back-btn,
-.next-btn {
-  background-color: #6c757d;
-  color: #fff;
-  padding: 10px 15px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.next-btn {
-  background-color: #28a745;
-}
-
-.back-btn:hover,
-.next-btn:hover {
-  opacity: 0.9;
-}
-
-/* Checkbox Group */
-.checkbox-group label {
-  display: inline-flex;
   align-items: center;
-  margin-right: 15px;
+  flex-wrap: wrap;
+  gap: 15px;
 }
 
-/* Terms & Conditions */
 .terms-container {
   display: flex;
   align-items: center;
-  gap: 10px;
-  flex-wrap: wrap;
+  gap: 8px; /* Space between checkbox and text */
 }
 
 .terms-container input[type="checkbox"] {
-  width: auto;
+  width: 16px; 
+  height: 16px;
+  accent-color: #134ab1;
+  cursor: pointer;
+  margin: 0;
 }
 
 .terms-container label {
-  font-size: 0.9rem;
+  font-size: 14px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
 }
 
 .terms-container a {
-  color: #007bff;
+  color: #134ab1;
   text-decoration: none;
+  font-weight: 600;
 }
 
 .terms-container a:hover {
   text-decoration: underline;
 }
 
-/* Responsive */
-@media (max-width: 992px) {
-  .contact-container {
-    padding: 100px 20px;
-  }
+.error-border {
+  border: 2px solid red !important;
+  background-color: #ffe6e6;
 }
 
-@media (max-width: 768px) {
-  .contact-container {
-    padding: 100px 20px;
-    margin-top: 50px;
-
-  }
-  .contact-content {
-    flex-direction: column;
-    align-items: left;
-    gap: 30px; /* More compact spacing */
-  }
-  .contact-info,
-  .contact-form {
-    width: 100%;
-    text-align: left;
-  }
-  .contact-form input,
-  .contact-form select {
-    width: 100%;
-  }
-
-  .form-navigation {
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .terms-container {
-    justify-content: center;
-  }
+.error-msg {
+  color: red;
+  font-size: 12px;
 }
 
-@media (max-width: 576px) {
-  .contact-container {
-    padding: 80px 15px;
-  }
-  .contact-form input,
-  .contact-form select,
-  .contact-form button {
-    font-size: 0.9rem;
-  }
-
-  .terms-container label {
-    font-size: 0.8rem;
-  }
-
-  .contact-info h2 {
-    font-size: 1.5rem;
-  }
-
-  .location h3 {
-    font-size: 1rem;
-  }
+/* Ensure text is on the same line */
+.checkbox-group label, .radio-group label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  cursor: pointer;
+}
+/* Custom Checkbox Design */
+.checkbox-group input[type="checkbox"], 
+.radio-group input[type="radio"] {
+  width: 18px;
+  height: 18px;
+  accent-color: #134ab1; /* Modern Blue Styling */
+  cursor: pointer;
 }
 
-@media (max-width: 400px) {
-  .contact-container {
-    padding: 60px 10px;
-  }
-  .contact-form form {
+.radio-group {
+  display: flex;
+  gap: 15px;
+}
+
+.form-navigation {
+
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.left-navigation {
+  justify-content: end;
+}
+
+.form-navigation button {
+  padding: 12px 18px;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+  font-size: 14px;
+}
+
+.next-btn , .submit-btn {
+  background-color: #134ab1;
+  color: white;
+}
+
+.next-btn:hover , .submit-btn:hover {
+  background-color: #043a9e;
+}
+
+.back-btn {
+  background-color: #55bfcf;
+  color: white;
+}
+
+.back-btn:hover {
+  background-color: #00aac4;
+}
+ 
+
+@media (max-width: 500px) {
+  .form-box {
     padding: 15px;
-  }
-
-  .form-navigation button {
     width: 100%;
+    transition: all 1s;
+    margin: 0;
   }
+  .checkbox-group label, .radio-group label {
+    font-size: 12px;
+  }
+
+    /* Connecting Lines */
+    .progress-line {
+      width: 45px;
+      height: 2px;
+      background: #ccc;
+      margin: 0 6px;
+      position: relative;
+    }
+
+  .progress-line.pending {
+    background: repeating-linear-gradient(
+      90deg,
+      #ccc 0px,
+      #ccc 2px,
+      transparent 2px,
+      transparent 4px
+    );
+  }
+
+  .step-content label { 
+    font-size: 12px;
+    margin: 0;
+  }
+
+/* Step Circle */
+.step-item {   
+  width: 20px;
+  height: 20px; 
+  font-size: 9px;   
 }
+/* Step Label Above Circle */
+.step-label {
+  font-size: 8px;
+  top: 25px;
+} 
 
-/* Responsive Design */
-@media (max-width: 1024px) {
-  .contact-content {
-    gap: 40px; /* Slightly reduced gap */
-  }
-
-  .contact-form {
-    min-width: 350px;
-  }
+.form-navigation button {
+  padding: 8px 12px;
+    font-size: 12px;
 }
-
+}

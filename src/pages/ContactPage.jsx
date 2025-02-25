@@ -1,14 +1,12 @@
 import React from "react";
-import ContactForm from "../components/ContactForm";
-import Navbar from "../components/Navbar";
 import GetInTouch from "../components/GetInTouch";
+import GetInTouchForm from "../components/GetInTouchForm.jsx";
 
 
 const ContactPage = () => {
   return (
    <>
-      {/* <Navbar/> */}
-      <ContactForm />
+      <GetInTouchForm/> 
       <GetInTouch/>
    </>
   );
