@@ -1,14 +1,20 @@
 /* General Styling */
 .get-in-touch-form {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: flex-start;
   flex-wrap: wrap; /* Allows stacking on smaller screens */
-  padding: 100px 5%;
   gap: 40px;
-  background-color: white;
+  position: relative;
+  padding: 5%;
+  border-radius: 35px;
+  background-color: #0a2458;
 }
-
+.main-formsection{
+  background-color: #50c6d8;
+  padding: 1.5%;
+  padding-top: 100px;
+ }
 
 /* Left Section: Contact Info */
 .contact-info {
@@ -16,16 +22,17 @@
   max-width: 700px;
   min-width: 400px;
   padding: 50px;
+  color: white;
 }
 
 .contact-info h2 {
   font-size: clamp(24px, 2vw, 32px);
-  color: #15346c;
+  color: #50c6d8;
 }
 
 .contact-info p {
   font-size: clamp(14px, 1.5vw, 16px);
-  color: #6e84ab;
+  color: white;
 }
 
 .location {
@@ -34,12 +41,12 @@
 
 .location h3 {
   font-size: clamp(16px, 1.8vw, 20px);
-  color: #15346c;
+  color: #50c6d8;
 }
 
 .location p {
   font-size: clamp(12px, 1.2vw, 14px);
-  color: #6e84ab;
+  color: wheat;
 }
 
 /* Right Section: Forms */
